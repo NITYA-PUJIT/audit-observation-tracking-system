@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --canvas: #f5f1e7;
+  --paper: rgba(255, 255, 255, 0.82);
+  --ink: #1a2b38;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(47, 143, 104, 0.16), transparent 32%),
+    radial-gradient(circle at 85% 10%, rgba(222, 123, 45, 0.18), transparent 24%),
+    linear-gradient(135deg, #f6f0e4 0%, #eef3f6 48%, #e8f5f0 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent 75%);
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[28px] border border-white/70 bg-white/80 shadow-float backdrop-blur;
+  }
+
+  .muted-panel {
+    @apply rounded-[24px] border border-slate-200/80 bg-slate-50/80;
+  }
+
+  .section-title {
+    @apply font-display text-lg font-semibold tracking-[0.02em] text-cinder-900;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.28em] text-cinder-500;
+  }
+
+  .subtle-copy {
+    @apply text-sm leading-6 text-cinder-500;
+  }
+
+  .nav-pill {
+    @apply flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-cinder-500 transition hover:bg-white/70 hover:text-cinder-900;
+  }
+
+  .nav-pill-active {
+    @apply bg-cinder-900 text-white shadow-lg shadow-cinder-900/15;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-cinder-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-cinder-700 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border border-cinder-300 bg-white px-4 py-2.5 text-sm font-semibold text-cinder-700 transition hover:border-cinder-500 hover:text-cinder-900 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-2xl px-3 py-2 text-sm font-semibold text-cinder-600 transition hover:bg-slate-100 hover:text-cinder-900;
+  }
+
+  .field-label {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-[0.2em] text-cinder-500;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-cinder-200 bg-white px-4 py-3 text-sm text-cinder-900 outline-none transition focus:border-cinder-500 focus:ring-2 focus:ring-cinder-100;
+  }
+
+  .textarea-field {
+    @apply input-field min-h-[140px] resize-y;
+  }
+
+  .table-shell {
+    @apply overflow-hidden rounded-[24px] border border-slate-200/80 bg-white;
+  }
+
+  .table-cell {
+    @apply px-4 py-3 align-top text-sm text-cinder-700;
+  }
+
+  .status-chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em];
+  }
+}
